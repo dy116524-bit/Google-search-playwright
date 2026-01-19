@@ -33,6 +33,12 @@ def run_automation():
         
         page.wait_for_selector("#search")
         print("Search results loaded.")
+        
+        page.wait_for_selector("#search")
+        print("Search results loaded.")
+
+
+        page.wait_for_timeout(5000)
 
         
         page.screenshot(path="google_search_result.png")
