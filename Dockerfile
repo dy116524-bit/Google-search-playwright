@@ -10,7 +10,7 @@ RUN  pip install --no-cache-dir -r requirements.txt
 
 
 RUN python3 -m playwright install chromium
-RUN python3 -m playwright codegen google.com
+RUN python -m playwright install-deps chromium
 
 
 
