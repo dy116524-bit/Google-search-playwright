@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/playwright/python:v1.49.0-jammy
 
 
-WORKDIR /app
+WORKDIR ..
 
 
 COPY requirements.txt .
