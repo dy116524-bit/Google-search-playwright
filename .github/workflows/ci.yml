@@ -1,0 +1,31 @@
+name: Playwright Google Search CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-run-playwright:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build Docker image
+      id: docker_build
+      run: |
+        docker build -t playwright-google-search .
+
+    - name: Run Playwright script in Docker
+      run: |
+        docker run --rm --ipc=host playwright-google-search
+
+    - name: Upload search results screenshot (Optional)
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-screenshots
+        path: google_search_results.png
+      if: always() # Always upload, even if the step fails
