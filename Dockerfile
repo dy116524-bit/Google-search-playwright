@@ -8,7 +8,7 @@ WORKDIR ..
 COPY requirements.txt .
 
 
-RUN python3 pip install requirements.txt
+RUN python  pip install requirements.txt
 RUN python3 -m playwright install chromium
 RUN python3 -m playwright codegen google.com
 
